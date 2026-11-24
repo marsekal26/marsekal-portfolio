@@ -2,7 +2,7 @@
 <html lang="id" class="scroll-smooth">
 <head>
 <!-- Google tag (gtag.js) GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZEB283BNSX"></script>
+<script async fetchpriority="low" src="https://www.googletagmanager.com/gtag/js?id=G-ZEB283BNSX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -21,45 +21,11 @@
     <!-- Google Fonts: Space Grotesk (heading) + DM Sans (body) — sama dengan beranda -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            primary: '#0F172A',
-                            secondary: '#334155',
-                            accent: '#0369A1',
-                            accentDark: '#075985',
-                            accentTint: '#E0F2FE',
-                            background: '#F8FAFC',
-                            foreground: '#020617',
-                            card: '#FFFFFF',
-                            muted: '#E8ECF1',
-                            mutedfg: '#475569',
-                            border: '#E2E8F0',
-                            destructive: '#DC2626',
-                            wa: '#25D366'
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Space Grotesk', 'sans-serif'],
-                        body: ['DM Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        sm: '0 1px 2px rgba(0,0,0,0.05)',
-                        md: '0 4px 6px rgba(0,0,0,0.1)',
-                        lg: '0 10px 15px rgba(0,0,0,0.1)',
-                        xl: '0 20px 25px rgba(0,0,0,0.15)'
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (static build — lihat tailwind.config.js untuk build ulang) -->
+    <link rel="stylesheet" href="../assets/tailwind.css">
 
     <style>
         :root {
@@ -79,6 +45,7 @@
 
         body {
             font-family: 'DM Sans', sans-serif;
+            font-size-adjust: from-font;
             background-color: #F8FAFC;
             color: #020617;
             overflow-x: hidden;
@@ -86,6 +53,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Space Grotesk', sans-serif;
+            font-size-adjust: from-font;
         }
 
         /* Focus states — visible, 3px ring (MASTER.md) */
@@ -408,7 +376,7 @@
                     <div class="relative mx-auto max-w-md lg:max-w-none">
 
                         <!-- Hero Photo -->
-                        <img src="../assets/hero.jpg" alt="Tim profesional Marsekal ID berkolaborasi mengerjakan proyek dengan laptop di kantor modern" class="w-full aspect-[16/10] object-cover rounded-2xl shadow-lg mb-6" width="1024" height="640" loading="eager">
+                        <img src="../assets/hero.jpg" alt="Tim profesional Marsekal ID berkolaborasi mengerjakan proyek dengan laptop di kantor modern" class="w-full aspect-[16/10] object-cover rounded-2xl shadow-lg mb-6" width="800" height="500" fetchpriority="high" loading="eager">
 
                         <!-- Price Card -->
                         <div class="card rounded-2xl p-6 md:p-8 shadow-lg relative z-10">
@@ -878,7 +846,7 @@
     </script>
 
     <!-- Three.js (pinned UMD r149, jsdelivr) — hanya untuk constellation hero -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" integrity="sha384-RRHfJ6w1mTlKUBMYT/hvnRiOzEB/vyRV3DrQOseb6oYfvaZSfdd0byS4bHps0k2R" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" integrity="sha384-RRHfJ6w1mTlKUBMYT/hvnRiOzEB/vyRV3DrQOseb6oYfvaZSfdd0byS4bHps0k2R" crossorigin="anonymous" referrerpolicy="no-referrer" fetchpriority="low"></script>
     <script>
     (function () {
         'use strict';
