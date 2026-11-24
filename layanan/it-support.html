@@ -13,6 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Jasa IT Support &amp; Maintenance Sistem — Marsekal ID</title>
     <meta name="description" content="Jasa IT Support & maintenance sistem Marsekal ID: solusi kendala teknis perangkat kantor, konfigurasi jaringan, hosting/server deployment, serta perawatan berkala agar operasional bebas hambatan. Konsultasi gratis.">
     <meta name="keywords" content="Jasa IT Support, IT Support Maintenance, Maintenance Sistem, Troubleshooting Hardware Network, Server Cloud Setup, Marsekal ID">
@@ -152,11 +153,20 @@
         }
         .input::placeholder { color: #475569; }
 
-        /* Custom scrollbar (light) */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F8FAFC; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #0369A1; }
+        /* Custom scrollbar (light) — standard properties first, WebKit fallback */
+        html {
+            --scrollbar-thumb: #64748B;
+            --scrollbar-track: #F8FAFC;
+            scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+            scrollbar-width: thin;
+        }
+        @supports not (scrollbar-color: auto) {
+            html { scrollbar-width: auto; }
+            ::-webkit-scrollbar { width: 8px; }
+            ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+            ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+            ::-webkit-scrollbar-thumb:hover { background: #0369A1; }
+        }
 
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
@@ -829,7 +839,7 @@
     </script>
 
     <!-- Three.js (pinned UMD r149, jsdelivr) — hanya untuk constellation hero -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" integrity="sha384-RRHfJ6w1mTlKUBMYT/hvnRiOzEB/vyRV3DrQOseb6oYfvaZSfdd0byS4bHps0k2R" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
     (function () {
         'use strict';
